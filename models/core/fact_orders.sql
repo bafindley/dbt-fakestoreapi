@@ -4,7 +4,7 @@ WITH order_details AS (
             c.order_date,
             p.product_id,
             c.quantity,
-            c.price * c.quantity AS order_cost
+            c.price * c.quantity AS line_item_total
     FROM {{ ref('dim_users')}} u 
     JOIN {{ ref('stg_carts')}} c 
         ON u.user_id = c.user_id 
